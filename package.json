@@ -1,0 +1,45 @@
+{
+    "name": "@mozmeao/cookie-helper",
+    "version": "1.0.0",
+    "description": "A complete cookies reader/writer framework with full unicode support.",
+    "main": "index.js",
+    "scripts": {
+        "prebuild": "npm run prettier && ./node_modules/eslint/bin/eslint.js src/*.js tests/*.js",
+        "test": "./node_modules/karma/bin/karma start tests/karma.conf.js",
+        "prettier": "prettier --write .",
+        "prepublishOnly": "npm run build",
+        "pretest": "npm run build",
+        "build": "webpack --mode production --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mozmeao/cookie-helper.git"
+    },
+    "author": "Mozilla",
+    "license": "MPL-2.0",
+    "bugs": {
+        "url": "https://github.com/mozmeao/cookie-helper/issues"
+    },
+    "homepage": "https://github.com/mozmeao/cookie-helper",
+    "devDependencies": {
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "eslint": "^8.12.0",
+        "eslint-config-prettier": "^8.5.0",
+        "jasmine-core": "^4.0.1",
+        "karma": "^6.3.17",
+        "karma-coverage": "^2.2.0",
+        "karma-chrome-launcher": "^3.1.1",
+        "karma-firefox-launcher": "^2.1.2",
+        "karma-jasmine": "^4.0.1",
+        "karma-sourcemap-loader": "^0.3.8",
+        "karma-webpack": "^5.0.0",
+        "prettier": "^2.6.1",
+        "sinon": "^13.0.1",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "@mozmeao/trafficcop": "^1.0.1"
+    }
+}
