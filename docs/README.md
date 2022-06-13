@@ -1,5 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 ### Contents
 
 - [Building the NPM package](#building-the-npm-package)
@@ -16,7 +17,6 @@
 [webpack]: https://webpack.js.org/
 [karma]: http://karma-runner.github.io/latest/index.html
 [jasmine]: https://jasmine.github.io/
-
 
 # Building the NPM package
 
@@ -49,4 +49,4 @@ Mozilla Cookie Helper is published to NPM under the `@mozmeao/cookie-helper` nam
 5. Submit a pull request with your against the `main` branch. Once the changes have been approved and merged to main:
 6. Run `npm test` to run the build script and front-end tests. The package contents will be located in `./dist/`.
 7. Tag a new release. You can do this either using [Git tag][git-tag], or directly on the [GitHub website][releases]. (Example: `git tag -a v1.1.0`). If you used [Git tag][git-tag], push your tags to the repo using `git push --tags`
-9. If the build is successful and all tests pass, publish to NPM using `npm publish ./dist/`.
+8. If the build is successful and all tests pass, publish to NPM using `npm publish ./dist/`.
