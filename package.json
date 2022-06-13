@@ -5,11 +5,13 @@
     "main": "index.js",
     "scripts": {
         "prebuild": "npm run prettier && ./node_modules/eslint/bin/eslint.js src/*.js tests/*.js",
-        "test": "./node_modules/karma/bin/karma start tests/karma.conf.js",
+        "build": "webpack --mode production --config webpack.config.js",
         "prettier": "prettier --write .",
         "prepublishOnly": "npm run build",
         "pretest": "npm run build",
-        "build": "webpack --mode production --config webpack.config.js"
+        "test": "./node_modules/karma/bin/karma start tests/karma.conf.js",
+        "readme": "doctoc --title \"### Contents\" --maxlevel 2 docs/README.md"
+
     },
     "repository": {
         "type": "git",
@@ -22,8 +24,12 @@
     },
     "homepage": "https://github.com/mozmeao/cookie-helper",
     "devDependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/preset-env": "^7.16.11",
+        "babel-loader": "^8.2.4",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
+        "doctoc": "^2.0.1",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "jasmine-core": "^4.0.1",
@@ -40,6 +46,7 @@
         "webpack-cli": "^4.9.2"
     },
     "dependencies": {
+
         "@mozmeao/trafficcop": "^1.0.1"
     }
 }

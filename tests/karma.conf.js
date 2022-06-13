@@ -27,7 +27,7 @@ module.exports = function (config) {
         reporters: ['dots', 'coverage'],
 
         preprocessors: {
-            'media/js/**/!(libs|test)/*.js': ['coverage'],
+            'tests/!(libs|test)/*.js': ['webpack'],
             'tests/unit/**/*.js': ['webpack', 'sourcemap']
         },
         webpack: {
