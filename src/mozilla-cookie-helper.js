@@ -4,12 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-// create namespace
-if (typeof window.Mozilla === 'undefined') {
-    window.Mozilla = {};
-}
-
-Mozilla.Cookies = {
+var CookieHelper = {
     getItem: function (sKey) {
         'use strict';
         if (!sKey) {
@@ -164,3 +159,5 @@ Mozilla.Cookies = {
         }
     }
 };
+
+module.exports = CookieHelper;

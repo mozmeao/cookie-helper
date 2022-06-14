@@ -27,8 +27,7 @@ module.exports = function (config) {
         reporters: ['dots', 'coverage'],
 
         preprocessors: {
-            'media/js/**/!(libs|test)/*.js': ['coverage'],
-            'tests/unit/**/*.js': ['webpack', 'sourcemap']
+            'tests/test-cookie-helper.js': ['webpack', 'sourcemap']
         },
         webpack: {
             devtool: 'inline-source-map',
