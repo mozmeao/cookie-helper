@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-const CookieHelper = {
+var CookieHelper = {
     getItem: function (sKey) {
         'use strict';
         if (!sKey) {
