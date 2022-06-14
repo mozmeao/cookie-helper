@@ -1,6 +1,6 @@
 {
     "name": "@mozmeao/cookie-helper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A complete cookies reader/writer framework with full unicode support.",
     "main": "index.js",
     "scripts": {
