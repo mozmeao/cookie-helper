@@ -52,7 +52,7 @@ describe('mozilla-cookie-helper.js', function () {
         beforeEach(clearCookies);
         afterEach(clearCookies);
 
-        it('should be called when calling Mozilla.Cookies.setItem', function () {
+        it('should be called when calling CookieHelper.setItem', function () {
             const spy = spyOn(window.CookieHelper, 'checkSameSite');
             window.CookieHelper.setItem(cookieId);
             expect(spy).toHaveBeenCalled();
@@ -140,6 +140,43 @@ describe('mozilla-cookie-helper.js', function () {
 
         it('should return true if the cookie is found in document.cookie', function () {
             expect(window.CookieHelper.removeItem(cookieId)).toBeTrue();
+        });
+
+        it('should set a cookie to expire immediately', function () {
+            spyOn(window.CookieHelper, 'setItem').and.callThrough();
+            expect(window.CookieHelper.removeItem(cookieId)).toBeTrue();
+            expect(window.CookieHelper.setItem).toHaveBeenCalledWith(
+                'test-cookie',
+                '',
+                'Thu, 01 Jan 1970 00:00:00 GMT',
+                undefined,
+                undefined,
+                undefined,
+                undefined
+            );
+        });
+
+        it('should pass optional parameters', function () {
+            spyOn(window.CookieHelper, 'setItem').and.callThrough();
+            expect(
+                window.CookieHelper.removeItem(
+                    cookieId,
+                    '/test/',
+                    'www.mozilla.org',
+                    false,
+                    'lax'
+                )
+            ).toBeTrue();
+
+            expect(window.CookieHelper.setItem).toHaveBeenCalledWith(
+                'test-cookie',
+                '',
+                'Thu, 01 Jan 1970 00:00:00 GMT',
+                '/test/',
+                'www.mozilla.org',
+                false,
+                'lax'
+            );
         });
     });
 
