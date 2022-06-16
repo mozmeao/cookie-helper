@@ -69,17 +69,20 @@ var CookieHelper = {
             (!vSamesite ? '' : '; samesite=' + vSamesite);
         return true;
     },
-    removeItem: function (sKey, sPath, sDomain) {
+    removeItem: function (sKey, sPath, sDomain, bSecure, vSamesite) {
         'use strict';
         if (!this.hasItem(sKey)) {
             return false;
         }
-        document.cookie =
-            encodeURIComponent(sKey) +
-            '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
-            (sDomain ? '; domain=' + sDomain : '') +
-            (sPath ? '; path=' + sPath : '');
-        return true;
+        return this.setItem(
+            sKey,
+            '',
+            'Thu, 01 Jan 1970 00:00:00 GMT',
+            sPath,
+            sDomain,
+            bSecure,
+            vSamesite
+        );
     },
     hasItem: function (sKey) {
         'use strict';
