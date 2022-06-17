@@ -11,7 +11,7 @@
 
 [git-tag]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
 [package.json]: https://github.com/mozmeao/cookie-helper/blob/master/package.json
-[releases]: https://github.com/mozmeao/cookie-helper/releases/**latest**
+[releases]: https://github.com/mozmeao/cookie-helper/releases/latest
 [readme]: https://github.commozmeao/cookie-helper/blob/master/README.md
 [changelog]: https://github.com/mozmeao/cookie-helper/blob/master/CHANGELOG.md
 [webpack]: https://webpack.js.org/
