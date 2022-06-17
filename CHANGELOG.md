@@ -2,6 +2,7 @@
 
 ## Bug Fixes
 
+-   **js:** Transpile package using Babel (#6).
 -   **js:** Enable passing `samesite` when calling removeItem() (#2)
 
 # 1.0.1
