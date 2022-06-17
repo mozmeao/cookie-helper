@@ -3,9 +3,9 @@
 
 ### Contents
 
--   [Building the NPM package](#building-the-npm-package)
--   [Running tests](#running-tests)
--   [Publishing to NPM](#publishing-to-npm)
+- [Building the NPM package](#building-the-npm-package)
+- [Running tests](#running-tests)
+- [Publishing to NPM](#publishing-to-npm)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -20,7 +20,7 @@
 
 # Building the NPM package
 
-We use a Webpack[webpack] configuration for building the contents of the NPM package ready for publishing. To build the package, run:
+We use a [Webpack][webpack] configuration for building the contents of the NPM package ready for publishing. To build the package, run:
 
 ```
 npm run build
@@ -30,7 +30,7 @@ This will install dependencies, lint JS files, and then build the package conten
 
 # Running tests
 
-To perform the package build process above and then run front-end JS tests using Karma Test Runner[karma] and Jasmine[jasmine] against the processed files:
+To perform the package build process above and then run front-end JS tests using [Karma Test Runner][karma] and [Jasmine][jasmine] against the processed files:
 
 ```
 npm run test
