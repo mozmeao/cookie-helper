@@ -22,16 +22,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    targets: {
-                                        ie: '10'
-                                    }
-                                }
-                            ]
-                        ]
+                        presets: ['@babel/preset-env']
                     }
                 }
             }
