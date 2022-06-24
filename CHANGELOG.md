@@ -2,6 +2,7 @@
 
 ## Bug Fixes
 
+-   **js:** Update ESLint config to enforce common rules (#8)
 -   **js:** Transpile package using Babel (#6).
 -   **js:** Enable passing `samesite` when calling removeItem() (#2)
 
