@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-var CookieHelper = {
+const CookieHelper = {
     getItem: function (sKey) {
         'use strict';
         if (!sKey) {
@@ -34,7 +34,7 @@ var CookieHelper = {
         ) {
             return false;
         }
-        var sExpires = '';
+        let sExpires = '';
         if (vEnd) {
             switch (vEnd.constructor) {
                 case Number:
@@ -97,7 +97,7 @@ var CookieHelper = {
     },
     keys: function () {
         'use strict';
-        var aKeys = document.cookie
+        const aKeys = document.cookie
             .replace(
                 // see issue 11338.
                 // eslint-disable-next-line no-useless-backreference
@@ -105,7 +105,7 @@ var CookieHelper = {
                 ''
             )
             .split(/\s*(?:=[^;]*)?;\s*/);
-        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) {
+        for (let nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) {
             aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
         }
         return aKeys;
@@ -129,7 +129,7 @@ var CookieHelper = {
         try {
             // Create cookie
             document.cookie = 'cookietest=1; SameSite=Lax';
-            var ret = document.cookie.indexOf('cookietest=') !== -1;
+            const ret = document.cookie.indexOf('cookietest=') !== -1;
             // Delete cookie
             document.cookie =
                 'cookietest=1; SameSite=Lax; expires=Thu, 01-Jan-1970 00:00:01 GMT';
