@@ -9,6 +9,8 @@
  * Sinon docs: http://sinonjs.org/docs/
  */
 
+import CookieHelper from '../dist/index';
+
 describe('mozilla-cookie-helper.js', function () {
     function clearCookies() {
         document.cookie = '';
@@ -26,21 +28,21 @@ describe('mozilla-cookie-helper.js', function () {
         afterEach(clearCookies);
 
         it('should set a cookie onto document.cookie', function () {
-            window.CookieHelper.setItem(cookieId, 'test', date, '/');
+            CookieHelper.setItem(cookieId, 'test', date, '/');
             expect(document.cookie).toContain(cookieId);
         });
 
         it('will return false if you dont pass the sKey property', function () {
-            expect(window.CookieHelper.setItem()).toBeFalse();
+            expect(CookieHelper.setItem()).toBeFalse();
         });
 
         it('will return false if sKey equals any of the folllowing: expires|max-age|path|domain|secure|samesite', function () {
-            expect(window.CookieHelper.setItem('expires')).toBeFalse();
-            expect(window.CookieHelper.setItem('max-age')).toBeFalse();
-            expect(window.CookieHelper.setItem('path')).toBeFalse();
-            expect(window.CookieHelper.setItem('domain')).toBeFalse();
-            expect(window.CookieHelper.setItem('secure')).toBeFalse();
-            expect(window.CookieHelper.setItem('samesite')).toBeFalse();
+            expect(CookieHelper.setItem('expires')).toBeFalse();
+            expect(CookieHelper.setItem('max-age')).toBeFalse();
+            expect(CookieHelper.setItem('path')).toBeFalse();
+            expect(CookieHelper.setItem('domain')).toBeFalse();
+            expect(CookieHelper.setItem('secure')).toBeFalse();
+            expect(CookieHelper.setItem('samesite')).toBeFalse();
         });
     });
 
@@ -53,25 +55,25 @@ describe('mozilla-cookie-helper.js', function () {
         afterEach(clearCookies);
 
         it('should be called when calling CookieHelper.setItem', function () {
-            const spy = spyOn(window.CookieHelper, 'checkSameSite');
-            window.CookieHelper.setItem(cookieId);
+            const spy = spyOn(CookieHelper, 'checkSameSite');
+            CookieHelper.setItem(cookieId);
             expect(spy).toHaveBeenCalled();
         });
 
         it('should return null if no argument is passed', function () {
-            expect(window.CookieHelper.checkSameSite()).toBeNull();
+            expect(CookieHelper.checkSameSite()).toBeNull();
         });
 
         it('should return "lax" if a truthy string is passed (but not strict | none)', function () {
-            expect(window.CookieHelper.checkSameSite('flour')).toBe('lax');
-            expect(window.CookieHelper.checkSameSite('lax')).toBe('lax');
+            expect(CookieHelper.checkSameSite('flour')).toBe('lax');
+            expect(CookieHelper.checkSameSite('lax')).toBe('lax');
         });
         it('should return "none" if "none" is passed to function', function () {
-            expect(window.CookieHelper.checkSameSite('none')).toBe('none');
+            expect(CookieHelper.checkSameSite('none')).toBe('none');
         });
 
         it('should return "lax" if "lax" is passed to function', function () {
-            expect(window.CookieHelper.checkSameSite('none')).toBe('none');
+            expect(CookieHelper.checkSameSite('none')).toBe('none');
         });
     });
 
@@ -82,20 +84,20 @@ describe('mozilla-cookie-helper.js', function () {
 
         beforeEach(function () {
             clearCookies();
-            window.CookieHelper.setItem(cookieId, 'test', date, '/');
+            CookieHelper.setItem(cookieId, 'test', date, '/');
         });
 
         afterEach(clearCookies);
 
         it('should return the value of the cookie that is passed to the getItem method', function () {
-            expect(window.CookieHelper.getItem(cookieId)).toBe('test');
+            expect(CookieHelper.getItem(cookieId)).toBe('test');
         });
 
         it('should return null if no cookie with that name is found', function () {
-            expect(window.CookieHelper.getItem('oatmeal-raisin')).toBeNull();
+            expect(CookieHelper.getItem('oatmeal-raisin')).toBeNull();
         });
         it('should return null if no argument for sKey is passed', function () {
-            expect(window.CookieHelper.getItem()).toBeNull();
+            expect(CookieHelper.getItem()).toBeNull();
         });
     });
 
@@ -106,19 +108,19 @@ describe('mozilla-cookie-helper.js', function () {
 
         beforeEach(function () {
             clearCookies();
-            window.CookieHelper.setItem(cookieId, 'test', date, '/');
+            CookieHelper.setItem(cookieId, 'test', date, '/');
         });
 
         afterEach(clearCookies);
 
         it('should return false if no argument for sKey is passed', function () {
-            expect(window.CookieHelper.hasItem()).toBeFalse();
+            expect(CookieHelper.hasItem()).toBeFalse();
         });
         it('should return false if no matching cookie is found', function () {
-            expect(window.CookieHelper.hasItem('chocolate-chip')).toBeFalse();
+            expect(CookieHelper.hasItem('chocolate-chip')).toBeFalse();
         });
         it('should return true if matching cookie is found', function () {
-            expect(window.CookieHelper.hasItem(cookieId)).toBeTrue();
+            expect(CookieHelper.hasItem(cookieId)).toBeTrue();
         });
     });
 
@@ -129,23 +131,23 @@ describe('mozilla-cookie-helper.js', function () {
 
         beforeEach(function () {
             clearCookies();
-            window.CookieHelper.setItem(cookieId, 'test', date, '/');
+            CookieHelper.setItem(cookieId, 'test', date, '/');
         });
 
         afterEach(clearCookies);
 
         it('should return false if the cookie doesnt exist', function () {
-            expect(window.CookieHelper.removeItem('snickerdoodle')).toBeFalse();
+            expect(CookieHelper.removeItem('snickerdoodle')).toBeFalse();
         });
 
         it('should return true if the cookie is found in document.cookie', function () {
-            expect(window.CookieHelper.removeItem(cookieId)).toBeTrue();
+            expect(CookieHelper.removeItem(cookieId)).toBeTrue();
         });
 
         it('should set a cookie to expire immediately', function () {
-            spyOn(window.CookieHelper, 'setItem').and.callThrough();
-            expect(window.CookieHelper.removeItem(cookieId)).toBeTrue();
-            expect(window.CookieHelper.setItem).toHaveBeenCalledWith(
+            spyOn(CookieHelper, 'setItem').and.callThrough();
+            expect(CookieHelper.removeItem(cookieId)).toBeTrue();
+            expect(CookieHelper.setItem).toHaveBeenCalledWith(
                 'test-cookie',
                 '',
                 'Thu, 01 Jan 1970 00:00:00 GMT',
@@ -157,9 +159,9 @@ describe('mozilla-cookie-helper.js', function () {
         });
 
         it('should pass optional parameters', function () {
-            spyOn(window.CookieHelper, 'setItem').and.callThrough();
+            spyOn(CookieHelper, 'setItem').and.callThrough();
             expect(
-                window.CookieHelper.removeItem(
+                CookieHelper.removeItem(
                     cookieId,
                     '/test/',
                     'www.mozilla.org',
@@ -168,7 +170,7 @@ describe('mozilla-cookie-helper.js', function () {
                 )
             ).toBeTrue();
 
-            expect(window.CookieHelper.setItem).toHaveBeenCalledWith(
+            expect(CookieHelper.setItem).toHaveBeenCalledWith(
                 'test-cookie',
                 '',
                 'Thu, 01 Jan 1970 00:00:00 GMT',
@@ -190,16 +192,11 @@ describe('mozilla-cookie-helper.js', function () {
         afterEach(clearCookies);
 
         it('should return the cookie keys found in document.cookie', function () {
-            window.CookieHelper.setItem(cookieId, 'test', date, '/');
-            expect(window.CookieHelper.keys()).toContain(cookieId);
-            expect(window.CookieHelper.keys().length).toEqual(1);
-            window.CookieHelper.setItem(
-                'oatmeal-chocolate-chip',
-                'tasty',
-                date,
-                '/'
-            );
-            expect(window.CookieHelper.keys().length).toEqual(2);
+            CookieHelper.setItem(cookieId, 'test', date, '/');
+            expect(CookieHelper.keys()).toContain(cookieId);
+            expect(CookieHelper.keys().length).toEqual(1);
+            CookieHelper.setItem('oatmeal-chocolate-chip', 'tasty', date, '/');
+            expect(CookieHelper.keys().length).toEqual(2);
         });
     });
 });
