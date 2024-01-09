@@ -1,3 +1,8 @@
+# HEAD
+
+-   **js:** Migrate ESLint to use new flat config (#26).
+-   **js:** Migrate JS tests to jasmine-browser-runner (#24).
+
 # 1.1.0
 
 ## Bug Fixes
