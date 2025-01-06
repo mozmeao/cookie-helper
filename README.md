@@ -10,9 +10,9 @@ Install via npm: `npm install @mozmeao/cookie-helper`
 
 Import the library at your applications entrypoint via require, import or by using a global variable in your script tag::
 
--   `import CookieHelper from '@mozmeao/cookie-helper';`
--   `const CookieHelper = require('@mozmeao/cookie-helper')`
--   `const CookieHelper = window.CookieHelper`
+- `import CookieHelper from '@mozmeao/cookie-helper';`
+- `const CookieHelper = require('@mozmeao/cookie-helper')`
+- `const CookieHelper = window.CookieHelper`
 
 Once that object is instanciated you can use the following functions:
 | Function | Notes |
@@ -25,9 +25,9 @@ Once that object is instanciated you can use the following functions:
 
 ## Further Doumentation
 
--   [Building the NPM package](docs/#building-the-npm-package)
--   [Running tests](docs/#running-tests)
--   [Publishing to NPM](docs/#publishing-to-npm)
+- [Building the NPM package](docs/#building-the-npm-package)
+- [Running tests](docs/#running-tests)
+- [Publishing to NPM](docs/#publishing-to-npm)
 
 ## License
 

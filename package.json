@@ -4,9 +4,10 @@
     "description": "A complete cookies reader/writer framework with full unicode support.",
     "main": "index.js",
     "scripts": {
-        "lint": "npm run prettier && npx eslint .",
+        "lint": "npm run prettier-check && npx eslint .",
         "prebuild": "npm run lint",
         "build": "webpack --mode production --config webpack.config.js",
+        "prettier-check": "prettier --check .",
         "prettier": "prettier --write .",
         "prepublishOnly": "npm run build",
         "pretest": "npm run build && npm run test-build",
