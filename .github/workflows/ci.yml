@@ -5,13 +5,13 @@ on:
     - main
 jobs:
     test:
-        runs-on: ubuntu-20.04 # Using pinned version instead of -latest until https://github.com/actions/runner-images/issues/6704 is resolved.
+        runs-on: ubuntu-latest
         name: 'Test'
         steps:
             - name: 'Ensure a recent Firefox and the xvfb framebuffer are installed'
               run: |
                   sudo apt-get update
-                  sudo apt-get install xvfb firefox
+                  sudo apt-get install xvfb
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
